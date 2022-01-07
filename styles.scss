@@ -1,0 +1,80 @@
+:root {
+  --neutural-900: hsl(207, 19%, 9%);
+  --neutural-100: hsl(0, 0%, 100%);
+  --neutural-400: hsl(142, 90%, 61%);
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+}
+
+body {
+  padding-top: 250px;
+  display: grid;
+  background-color: var(--neutural-900);
+  place-items: center;
+  line-height: 1.6;
+  font-family: sans-serif; // текст без засечек
+}
+
+.card {
+  transition: 500ms;
+  position: relative;
+  background-image: url("img/bg.jpg");
+  background-size: cover;
+  border-radius: 10px;
+  padding: 200px 15px 20px 15px;
+  color: var(--neutural-100);
+  max-width: 340px;
+  cursor: pointer;
+  overflow: hidden;
+  &__title {
+    padding-bottom: 5px;
+    position: relative;
+  }
+
+  &__content {
+    transform: translateY(80%);
+    transition: 350ms;
+    transition-delay: 250ms;
+  }
+  &__title:after {
+    content: "";
+    position: absolute;
+    transition: 250ms;
+    height: 3px;
+    width: 1%;
+    bottom: 0;
+    left: 0;
+    border-radius: 5px;
+    background-color: var(--neutural-400);
+  }
+  &__body {
+    font-size: 15px;
+
+  }
+  &__button {
+    padding: 8px 15px;
+    border-radius: 10px;
+    color: var(--neutural-900);
+    font-weight: bold;
+    background-color: var(--neutural-400);
+  }
+
+}
+
+.card:hover {
+  transform: scale(1.06);
+}
+
+.card:hover .card__title:after{
+  width: 100%;
+}
+.card:hover .card__content,
+.card:focus-within .card__content {
+  transform: translateY(0%);
+}
